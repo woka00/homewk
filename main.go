@@ -52,6 +52,7 @@ func main() {
 
 	// pp.Println(books)
 
-	simple_sql.ListPages(5, ctx, conn)
-
+	if err := simple_sql.ListPages(5, ctx, conn); err != nil {
+		panic(err)
+	}
 }

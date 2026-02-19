@@ -12,7 +12,7 @@ func ListPages(
 	ctx context.Context,
 	conn *pgx.Conn,
 
-) {
+) error {
 	sqlQuery := `
 	SELECT 
 		ID, 
@@ -33,7 +33,7 @@ func ListPages(
 		count := 0
 		rows, err := conn.Query(ctx, sqlQuery, n, offset)
 		if err != nil {
-			panic(err)
+			return err
 		}
 
 		for rows.Next() {
@@ -51,6 +51,7 @@ func ListPages(
 			)
 			if err != nil {
 				panic(err)
+				return err
 			}
 
 			count++
@@ -66,5 +67,5 @@ func ListPages(
 		}
 
 	}
-
+	return nil
 }
