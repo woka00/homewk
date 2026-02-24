@@ -50,7 +50,6 @@ func ListPages(
 				&book.FullReadedTime,
 			)
 			if err != nil {
-				panic(err)
 				return err
 			}
 
