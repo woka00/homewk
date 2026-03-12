@@ -1,0 +1,1 @@
+ALTER TABLE products ADD COLUMN expire_date DATE NOT NULL;
